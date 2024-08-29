@@ -12,7 +12,7 @@ title                    : "Robert Bach"
 title_separator          : ""
 name                     : &name "Robert Bach"
 description              : &description "Robert's personal website"
-url                      : https://baobach.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://quantfin.net # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "baobach/baobach.github.io"
 
