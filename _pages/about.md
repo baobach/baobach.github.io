@@ -35,7 +35,7 @@ Reach me at: <robert@quantfin.net>
 ![Ethereum](https://img.shields.io/badge/-Ethereum-0D1117?style=flat-square&logo=ethereum)
 
 * Quant skills: Probability theory, Stochastic Calculus, Montecarlo Method, Risk Modeling, Portfolio Optimization, Algorithmic Trading Strategy;
-* $\LaTeX$: various documents and custom templates;
+* Latex: various documents and custom templates;
 * Agile project management methodology.
 
 ## Work Experience &nbsp;👔
