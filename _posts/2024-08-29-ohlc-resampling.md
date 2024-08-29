@@ -1,7 +1,7 @@
 ---
 title: 'Enhancing Algorithmic Trading Backtesting with Custom OHLC Resampling'
 date: 2024-08-29
-permalink: /posts/2012/08/blog-post-1/
+permalink: /posts/2024/08/ohlc-resampling/
 tags:
   - time series
   - python
