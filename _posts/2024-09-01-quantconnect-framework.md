@@ -1,6 +1,6 @@
 ---
 title: 'Mastering QuantConnect’s Algorithm Framework for Efficient Trading Strategy Development'
-date: 2024-01-09
+date: 2024-09-01
 permalink: /posts/2024/09/quantconnect-framework/
 tags:
   - algorithmic trading
