@@ -8,9 +8,9 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Robert Bach"
+title                    : "QuantFin"
 title_separator          : ""
-name                     : &name "Robert Bach"
+name                     : &name "QuantFin"
 description              : &description "Robert's personal website"
 url                      : https://quantfin.net # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -24,7 +24,7 @@ author:
   avatar           : "profile_picture.jpg"
   name             : "Robert Bach"
   pronouns         : # example: "she/her"  
-  bio              : "I want to apply my mathematical skills in machine learning algorithm development, portfolio return optimization, and trading derivatives."
+  bio              : "I am a Quantitative Researcher, specialized in Algorithmic Trading and Portfolio Management. If you are interested in mathematics and programing, please connect with me."
   location         : "Bangkok City"
   employer         : 
   uri              : # URL
