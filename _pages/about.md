@@ -16,7 +16,7 @@ Reach me at: <robert@quantfin.net>
 ## Key Skills & Tools &nbsp;🧰
 
 ![Python](https://img.shields.io/badge/-Python-0D1117?style=flat-square&logo=python)
-![C#](https://img.shields.io/badge/C%23-%23239120.svg?logo=csharp&logoColor=white)
+![C#](https://custom-icon-badges.demolab.com/badge/-CSharp-0D1117.svg?logo=cshrp&logoColor=white)
 ![Bash](https://img.shields.io/badge/-Bash-0D1117?style=flat-square&logo=gnu-bash)
 ![Git](https://img.shields.io/badge/-Git-0D1117?style=flat-square&logo=git)
 ![Docker](https://img.shields.io/badge/-Docker-0D1117?style=flat-square&logo=docker)
