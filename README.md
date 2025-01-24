@@ -33,7 +33,7 @@ Reach me at: <robert@quantfin.net>
 
 | Position                    | Company                   | Field                           | Time Period          |
 | --------------------------- | ------------------------- | ------------------------------- | -------------------- |
-| Algorithmic Trading Dev     | Free Lance                | Algorithmic Trading             | 01/2024 — Present    |
+| Algorithmic Trading Dev     | Freelancing               | Algorithmic Trading             | 01/2024 — Present    |
 | Quant Researcher            | Riot Investment Strategy  | Backtesting Engine              | 01/2024 — Present    |
 | Growth Manager              | Incognito.org             | Growth Consulting - Blockchain  | 12/2021 — 02/2023    |
 
