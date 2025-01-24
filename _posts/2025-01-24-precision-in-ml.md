@@ -11,7 +11,7 @@ tags:
 
 When developing machine learning (ML) models for algorithmic trading, one of the key challenges is determining the trade-off between accuracy and precision. Accuracy measures the overall correctness of predictions, while precision focuses on the relationship between true positives (money-making bets) and false positives (money-losing bets). This trade-off directly influences the expected Sharpe ratio, which is critical for assessing the risk-adjusted return of a trading strategy. By analyzing the outcomes of market bets within specific time windows, practitioners can identify target metrics to optimize both model training and validation.
 
-Let’s delve into this concept by considering a trading strategy that produces $(n)$ independent and identically distributed (I.I.D) bets per year. Each bet's outcome $X_i$, where $i \in [1, n]$, is defined as follows:
+Let’s delve into this concept by considering a trading strategy that produces \\(n\\) independent and identically distributed (I.I.D) bets per year. Each bet's outcome $X_i$, where $i \in [1, n]$, is defined as follows:
 
 - A profit $\pi > 0$ with probability $P[X_i = \pi] = p$
 - A loss $-\pi$ with probability $P[X_i = -\pi] = 1 - p$
