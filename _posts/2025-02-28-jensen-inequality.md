@@ -86,3 +86,5 @@ print(f"\\mathbb{{E}}[\\varphi(X)] = {function_expected:.4f}")
 The computational example demonstrates that \(\mathbb{E}[\varphi(X)]\) consistently exceeds or equals \(\varphi(\mathbb{E}[X])\) for our convex function, confirming the theoretical inequality.
 
 Jensen's inequality provides a fundamental tool for understanding relationships between expectations and nonlinear transformations. Its visual interpretation offers intuitive insights into why these relationships hold true across various domains in quantitative analysis.
+
+---
