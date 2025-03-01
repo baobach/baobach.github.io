@@ -6,7 +6,6 @@ tags:
   - mathematics
   - probability theory
   - convex analysis
-  - visualization
   - quantitative finance
 ---
 
