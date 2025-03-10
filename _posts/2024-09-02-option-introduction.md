@@ -140,7 +140,7 @@ plt.title('Euler-Maruyama Scheme - 100 Simulated Paths')
 plt.show()
 ```
 
-![Euler-Maruyama Plot](https://quantfin.net/images/blogs/euler-method.png)
+![Euler-Maruyama Plot](/assets/img/blog/euler-method.png)
 
 ## Pricing Exotic Options
 

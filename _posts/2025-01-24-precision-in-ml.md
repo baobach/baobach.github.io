@@ -89,7 +89,7 @@ $$
 
 The figure below illustrates this trade-off, showing the Sharpe ratio as a function of precision for various betting frequencies. High frequencies ($n$) can compensate for lower precision, while lower frequencies demand higher precision to achieve similar Sharpe ratios.
 
-![Relation between precision and Sharpe ratio](https://quantfin.net/images/blogs/sharpe-precision-relationship.png)
+![Relation between precision and Sharpe ratio](/assets/img/blog/sharpe-precision-relationship.png)
 
 By understanding this interplay, practitioners can align their strategy's design with the operational constraints of their trading environment, balancing precision and frequency to optimize performance.
 

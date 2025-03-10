@@ -23,7 +23,7 @@ This inequality has profound implications in statistics, inftyormation theory, a
 
 The geometric interpretation of Jensen's inequality emerges from the definition of convex functions. A function is convex when a line segment between any two points on its graph lies above or on the graph. For a convex function $\varphi(x)$, consider two points $x_1$ and $x_2$. The weighted average of their function values will always be greater than or equal to the function value of their weighted average.
 
-![Jensen's Inequality Visualization](https://quantfin.net/images/blogs/jensen_inequality.png)
+![Jensen's Inequality Visualization](/assets/img/blog/jensen_inequality.png)
 
 In the visualization above, the blue curve represents a convex function $\varphi(x)$. The red line segment connects two points $(x_1, \varphi(x_1))$ and $(x_2, \varphi(x_2))$. Any point on this line segment represents a weighted average of the function values, while the corresponding point on the curve represents the function value of the weighted average of $x_1$ and $x_2$.
 
