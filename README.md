@@ -1,3 +1,5 @@
+[![pages-build-deployment](https://github.com/baobach/baobach.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/baobach/baobach.github.io/actions/workflows/pages/pages-build-deployment)
+
 # Hi &nbsp;👋
 
 My name is Robert and I am pursuing a career in Quantitative Finance. I want to apply my mathematical skills in machine learning algorithm development, portfolio return optimization, and trading derivatives. I am seeking opportunities to contribute expertise in quantitative finance, data analysis, and computational skills to drive innovative strategies in the financial domain.
