@@ -1,11 +1,12 @@
 ---
-title: 'Visual Intuition Behind Jensen's Inequality'
+title: 'Accuracy vs Precision in Algorithmic Trading Using Machine Learning Models'
 date: 2025-01-25
-permalink: /posts/2025/01/quantconnect-framework/
+permalink: /posts/2025/01/sample/
 tags:
-  - algorithmic trading
-  - quantconnect
-  - python
+  - quantitative finance
+  - machine learning
+  - optimization
+  - sharpe ratio
 ---
 
 When developing machine learning (ML) models for algorithmic trading, one of the key challenges is determining the trade-off between accuracy and precision. Accuracy measures the overall correctness of predictions, while precision focuses on the relationship between true positives (money-making bets) and false positives (money-losing bets). This trade-off directly influences the expected Sharpe ratio, which is critical for assessing the risk-adjusted return of a trading strategy. By analyzing the outcomes of market bets within specific time windows, practitioners can identify target metrics to optimize both model training and validation.
