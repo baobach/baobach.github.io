@@ -1,13 +1,27 @@
-# Ignore the contents of the _site directory
-_site/
-
-# Ignore the directory for local files during development
-local/
-
-# Ignore the Gemfile that is generated
+# Bundler cache
+.bundle
+vendor
 Gemfile.lock
 
-# Ingore files created by npm
+# Jekyll cache
+.jekyll-cache
+.jekyll-metadata
+_site
+
+# RubyGems
+*.gem
+
+# NPM dependencies
 node_modules
 package-lock.json
-.cursor/rules/quantfin-blog.mdc
+
+# IDE configurations
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+
+# Misc
+_sass/vendors
+assets/js/dist

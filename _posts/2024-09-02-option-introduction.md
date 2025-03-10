@@ -7,6 +7,7 @@ tags:
   - options
   - pricing model
   - option pricing theory
+math: true
 ---
 
 In the world of finance, exotic options offer unique payoff structures that are highly sensitive to the path taken by the underlying asset. Traditional pricing models like Black-Scholes are not sufficient for such path-dependent options, so we turn to simulation methods. One of the most efficient methods for simulating asset prices is the **Euler-Maruyama scheme**, which is used to approximate solutions for stochastic differential equations (SDEs) like the geometric Brownian motion (GBM) that models asset prices.
@@ -15,7 +16,7 @@ This article delves into how to simulate asset price paths using the **Euler-Mar
 
 ## Pricing Options Under the Risk-Neutral Framework
 
-In quantitative finance, the price of an option is typically the expected value of its discounted payoff under the **risk-neutral density** \\(\mathbb{Q}\\):
+In quantitative finance, the price of an option is typically the expected value of its discounted payoff under the **risk-neutral density** $\mathbb{Q}$:
 
 $$
 V(S,t) = e^{-r(T-t)}\mathbb{E}^\mathbb{Q}[\mathbf{Payoff}(S_{T})]
@@ -23,13 +24,13 @@ $$
 
 Where:
 
-- \\(V(S,t)\\) is the option value at time \\(t\\)
-- \\(r\\) is the risk-free interest rate
-- \\(T\\) is the expiry of the option
-- \\(\mathbb{E}^\mathbb{Q}\\) denotes the expectation under the risk-neutral measure
-- \\(\mathbf{Payoff}(S_T)\\) is the payoff of the option at expiry
+- $V(S,t)$ is the option value at time $t$
+- $r$ is the risk-free interest rate
+- $T$ is the expiry of the option
+- $\mathbb{E}^\mathbb{Q}$ denotes the expectation under the risk-neutral measure
+- $\mathbf{Payoff}(S_T)$ is the payoff of the option at expiry
 
-For our examples, we’ll assume the following input data:
+For our examples, we'll assume the following input data:
 
 $$
 \begin{align*}
@@ -64,12 +65,12 @@ $$
 
 Where:
 
-- \\(S\\) is the price of the asset
-- \\(r\\) is the risk-free interest rate
-- \\(\sigma\\) is the volatility
-- \\(dW\\) represents the Wiener process or Brownian motion
+- $S$ is the price of the asset
+- $r$ is the risk-free interest rate
+- $\sigma$ is the volatility
+- $dW$ represents the Wiener process or Brownian motion
 
-The logarithmic transformation of \\(S\\) simplifies the SDE:
+The logarithmic transformation of $S$ simplifies the SDE:
 
 $$
 d(\log S) = \left(r - \frac{1}{2} \sigma^{2}\right) dt + \sigma dW
@@ -81,13 +82,13 @@ $$
 S(t) = S_0 \exp \left(\left(r - \frac{1}{2} \sigma^{2}\right) t + \sigma W(t)\right)
 $$
 
-This exact solution is useful for understanding the dynamics of \\(S\\), but for practical purposes, we approximate it using the Euler-Maruyama scheme:
+This exact solution is useful for understanding the dynamics of $S$, but for practical purposes, we approximate it using the Euler-Maruyama scheme:
 
 $$
 S_{t + dt} = S_t \exp \left(\left(r - \frac{1}{2} \sigma^{2}\right) dt + \sigma \sqrt{dt} \, \phi \right)
 $$
 
-Where \\(\phi\\) is a random variable drawn from a standard normal distribution. The **Euler-Maruyama scheme** is accurate enough for most pricing problems and has an error of order \\(O(\Delta t)\\).
+Where $\phi$ is a random variable drawn from a standard normal distribution. The **Euler-Maruyama scheme** is accurate enough for most pricing problems and has an error of order $O(\Delta t)$.
 
 ### Implementation in Python
 
@@ -120,7 +121,7 @@ def simulate_path(s0, risk_free_rate, vol, horizon, timesteps, n_sims):
     return S
 ```
 
-Let’s simulate the asset paths with the following parameters:
+Let's simulate the asset paths with the following parameters:
 
 - **Number of paths**: `100,000`
 - **Time steps**: `252` trading days
@@ -154,12 +155,12 @@ An **Asian option** is an exotic option where the payoff depends on the average 
 
 The formulas for the payoffs are as follows:
 
-- Average strike call: \\(\max(S - A, 0)\\)
-- Average strike put: \\(\max(A - S, 0)\\)
-- Average rate call: \\(\max(A - E, 0)\\)
-- Average rate put: \\(\max(E - A, 0)\\)
+- Average strike call: $\max(S - A, 0)$
+- Average strike put: $\max(A - S, 0)$
+- Average rate call: $\max(A - E, 0)$
+- Average rate put: $\max(E - A, 0)$
 
-Where \\(A\\) is the arithmetic average of the underlying prices:
+Where $A$ is the arithmetic average of the underlying prices:
 
 $$
 A_i = \frac{1}{i} \sum_{k=1}^{i} S(t_k)
@@ -187,19 +188,19 @@ Asian Put Option Value is 3.3467
 
 ### 2. **Lookback Options Pricing**
 
-A **Lookback option** is another type of exotic option where the payoff depends on the maximum or minimum price of the underlying asset during the option’s life. The two types of Lookback options are:
+A **Lookback option** is another type of exotic option where the payoff depends on the maximum or minimum price of the underlying asset during the option's life. The two types of Lookback options are:
 
 1. **Floating strike option**: The strike price is determined by the minimum or maximum price observed during the life of the option.
 2. **Fixed strike option**: The strike price is fixed, and the payoff is based on the maximum or minimum asset price.
 
 The payoffs are:
 
-- Floating strike call: \\(\max(S - M_{\min}, 0)\\)
-- Floating strike put: \\(\max(M_{\max} - S, 0)\\)
-- Fixed strike call: \\(\max(M_{\max} - E, 0)\\)
-- Fixed strike put: \\(\max(E - M_{\min}, 0)\\)
+- Floating strike call: $\max(S - M_{\min}, 0)$
+- Floating strike put: $\max(M_{\max} - S, 0)$
+- Fixed strike call: $\max(M_{\max} - E, 0)$
+- Fixed strike put: $\max(E - M_{\min}, 0)$
 
-Where \\(M_{\max}\\) and \\(M_{\min}\\) are the maximum and minimum prices of the asset:
+Where $M_{\max}$ and $M_{\min}$ are the maximum and minimum prices of the asset:
 
 $$
 M_{\max} = \max_{0 \leq \tau \leq t} S(\tau), \quad M_{\min} = \min_{0 \leq \tau \leq t} S(\tau)

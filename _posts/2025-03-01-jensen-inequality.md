@@ -1,106 +1,100 @@
 ---
-title: 'Accuracy vs Precision in Algorithmic Trading Using Machine Learning Models'
-date: 2025-01-25
-permalink: /posts/2025/01/sample/
+title: 'Visual Intuition Behind Jensen Inquality'
+date: 2025-03-01
+permalink: /posts/2025/03/jensen-inequality/
 tags:
+  - mathematics
+  - probability theory
+  - convex analysis
   - quantitative finance
-  - machine learning
-  - optimization
-  - sharpe ratio
+
+math: true
 ---
 
-When developing machine learning (ML) models for algorithmic trading, one of the key challenges is determining the trade-off between accuracy and precision. Accuracy measures the overall correctness of predictions, while precision focuses on the relationship between true positives (money-making bets) and false positives (money-losing bets). This trade-off directly influences the expected Sharpe ratio, which is critical for assessing the risk-adjusted return of a trading strategy. By analyzing the outcomes of market bets within specific time windows, practitioners can identify target metrics to optimize both model training and validation.
+Jensen's inequality forms a cornerstone of probability theory and convex analysis, establishing a relationship between the expected value of a function and the function of an expected value. The mathematical formulation states that for a convex function $\varphi$ and a random variable $X$:
 
-Let’s delve into this concept by considering a trading strategy that produces \\(n\\) independent and identically distributed (IID) bets per year. Each bet's outcome \\(X_i\\), where \\(i \in [1, n]\\), is defined as follows:
+$$
+\varphi(\mathbb{E}[X]) \leq \mathbb{E}[\varphi(X)]
+$$
 
-- A profit \\(\pi > 0\\) with probability \\(P[X_i = \pi] = p\\)
-- A loss \\(-\pi\\) with probability \\(P[X_i = -\pi] = 1 - p\\)
+This inequality has profound implications in statistics, inftyormation theory, and financial mathematics. Understanding its geometric interpretation provides deeper insights into why this relationship holds true and its practical applications.
 
-Here, \\(p\\) can be thought of as the precision of a binary classifier:
-- **Positive outcomes** indicate betting on an opportunity.
-- **Negative outcomes** mean passing on an opportunity.
+## Geometric Interpretation
 
-True positives are rewarded, false positives are punished, and negatives (whether true or false) have no direct impact. Importantly, this framework allows us to compute the expected moments per bet.
+The geometric interpretation of Jensen's inequality emerges from the definition of convex functions. A function is convex when a line segment between any two points on its graph lies above or on the graph. For a convex function $\varphi(x)$, consider two points $x_1$ and $x_2$. The weighted average of their function values will always be greater than or equal to the function value of their weighted average.
 
-## Expected Profit and Variance per Bet
+![Jensen's Inequality Visualization](https://quantfin.net/images/blogs/jensen_inequality.png)
 
-The expected profit \\(E[X_i]\\) from one bet is:
-\\[
-E[X_i] = \pi p + (-\pi)(1 - p) = \pi (2p - 1)
-\\]
+In the visualization above, the blue curve represents a convex function $\varphi(x)$. The red line segment connects two points $(x_1, \varphi(x_1))$ and $(x_2, \varphi(x_2))$. Any point on this line segment represents a weighted average of the function values, while the corresponding point on the curve represents the function value of the weighted average of $x_1$ and $x_2$.
 
-The variance \\(V[X_i]\\) of a single bet is derived as follows:
-1. The second moment \\(E[X_i^2]\\):
-\\[
-E[X_i^2] = \pi^2 p + (-\pi)^2 (1 - p) = \pi^2
-\\]
+## Mathematical Foundation
 
-2. The variance:
-\\[
-V[X_i] = E[X_i^2] - E[X_i]^2 = \pi^2 - \pi^2 (2p - 1)^2 = \pi^2 [1 - (2p - 1)^2] = 4\pi^2 p (1 - p)
-\\]
+The inequality's power extends beyond simple weighted averages to expectations of random variables. For a continuous random variable X with probability density function f(x), Jensen's inequality states:
 
-## Annualized Sharpe Ratio
+$$
+\varphi \left(\int_{-\infty}^{\infty} x f(x) dx \right) \leq \int_{-\infty}^{\infty} \varphi(x) f(x) dx
+$$
 
-For \\(n\\) IID bets per year, the annualized Sharpe ratio \\(\theta[p, n]\\) is given by:
-\\[
-\theta[p, n] = \frac{n E[X_i]}{\sqrt{n V[X_i]}} = \frac{2p - 1}{2\sqrt{p(1 - p)}} \sqrt{n}
-\\]
+This formulation demonstrates that the expected value of a convex function applied to a random variable is greater than or equal to the function applied to the expected value of the random variable.
 
-This equation illustrates several key insights:
-1. The parameter \\(\pi\\) cancels out, highlighting that the Sharpe ratio depends only on \\(p\\) and \\(n\\).
-2. \\(\theta[p, n]\\) can be interpreted as a re-scaled t-value, similar to statistical hypothesis testing under \\(H_0: p = 1/2\\).
+## Applications in Finance and Statistics
 
-## Symmetrical Payout and Its Implications
+Jensen's inequality explains numerous phenomena in quantitative finance and statistics:
 
-In this framework, the expected profit per bet is symmetrical, meaning the payout for winning bets is \\(+\pi\\), while the loss for losing bets is \\(-\pi\\). This symmetry ensures that the parameter \\(\pi\\) cancels out when calculating key metrics like the Sharpe ratio. 
+The inequality explains why the geometric mean of returns is always less than or equal to the arithmetic mean. For a log-normal distribution of asset returns, this relationship becomes:
 
-For example, consider a precision of \\(p = 0.55\\):
-\\[
-\theta[p, n] = \frac{2p - 1}{2\sqrt{p(1 - p)}} \sqrt{n}
-\\]
-Substituting \\(p = 0.55\\), we get:
-\\[
-\frac{2(0.55) - 1}{2\sqrt{0.55(1 - 0.55)}} \approx 0.1005
-\\]
-To achieve an annualized Sharpe ratio of \\(\theta = 2\\), the required number of bets per year is:
-\\[
-n = \left(\frac{\theta \cdot 2\sqrt{p(1 - p)}}{2p - 1}\right)^2 = \left(\frac{2 \cdot 2\sqrt{0.55 \cdot 0.45}}{2(0.55) - 1}\right)^2 \approx 396
-\\]
+$$
+\mathbb{E}[\ln(1 + R)] \leq \ln(1 + \mathbb{E}[R])
+$$
 
-This shows that even modest precision levels can yield high Sharpe ratios if the betting frequency \\(n\\) is sufficiently high.
+This inequality impacts portfolio management, particularly in understanding the difference between arithmetic and geometric returns. Long-term investors must account for this effect when projecting future portfolio values.
 
-## Trade-off Between Precision and Frequency
+In risk management, Jensen's inequality explains why variance and other higher moments of return distributions affect long-term compound returns. The convexity of the exponential function leads to:
 
-The relationship between precision \\(p\\), frequency \\(n\\), and Sharpe ratio \\(\theta\\) can be explicitly expressed as:
-\\[
--4p^2 + 4p - \frac{n}{\theta^2 + n} = 0
-\\]
-Solving for \\(p\\), we obtain:
-\\[
-p = \frac{1}{2} \left(1 + \sqrt{1 - \frac{n}{\theta^2 + n}}\right)
-\\]
+$$
+\mathbb{E}[e^X] \geq e^{\mathbb{E}[X]}
+$$
 
-This equation highlights the trade-off between \\(p\\) and \\(n\\) for a given Sharpe ratio \\(\theta\\). For example, a strategy that only produces weekly bets (\\(n = 52\\)) would require a precision of:
-\\[
-p = \frac{1}{2} \left(1 + \sqrt{1 - \frac{52}{2^2 + 52}}\right) \approx 0.6336
-\\]
-to deliver an annualized Sharpe ratio of \\(2\\).
+This relationship becomes crucial when dealing with options pricing and risk-neutral valuation, where the convexity of payoff functions plays a central role.
 
-The figure below illustrates this trade-off, showing the Sharpe ratio as a function of precision for various betting frequencies. High frequencies (\\(n\\)) can compensate for lower precision, while lower frequencies demand higher precision to achieve similar Sharpe ratios.
+## Practical Implications
 
-![Relation between precision and Sharpe ratio](https://quantfin.net/images/blogs/sharpe-precision-relationship.png)
+Understanding Jensen's inequality helps practitioners in several ways:
 
-By understanding this interplay, practitioners can align their strategy's design with the operational constraints of their trading environment, balancing precision and frequency to optimize performance.
+The inequality explains why diversification reduces portfolio risk. The convexity of variance means that the variance of a portfolio is less than or equal to the weighted average of individual asset variances.
 
-## Implications for Algorithmic Trading
+In machine learning, the inequality underlies the effectiveness of ensemble methods. The convexity of error functions means that averaging predictions often produces better results than individual models.
 
-Even for small values of \\(p > 1/2\\), the Sharpe ratio can be significantly increased by raising \\(n\\). This underscores the economic foundation of high-frequency trading, where precision \\(p\\) may be only slightly above 50%, but the sheer volume of bets \\(n\\) drives profitability.
+For time series analysis, the inequality helps understand why geometric averaging provides a more accurate measure of long-term growth rates compared to arithmetic averaging.
 
-The Sharpe ratio is a function of **precision** rather than accuracy because passing on opportunities (negatives) does not directly affect rewards or penalties. However, too many negatives can reduce \\(n\\), ultimately depressing the Sharpe ratio toward zero.
+## Computational Verification
 
-## Conclusion
+We can verify Jensen's inequality computationally using Python:
 
-Understanding the interplay between accuracy and precision is crucial for developing effective ML models in algorithmic trading. While accuracy measures overall correctness, precision focuses on the quality of positive predictions—a critical factor for boosting the Sharpe ratio. By aligning model training and validation with these metrics, practitioners can design strategies that maximize profitability and robustness in trading environments.
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define a convex function (e.g., x^2)
+def convex_function(x):
+    return x**2
+
+# Generate random points
+x = np.linspace(-2, 2, 1000)
+y = convex_function(x)
+
+# Calculate expected value and function value
+points = np.array([-1, 1])  # Two points for demonstration
+expected_value = np.mean(points)
+expected_function = convex_function(expected_value)
+function_expected = np.mean([convex_function(p) for p in points])
+
+print(f"\\varphi(\\mathbb{{E}}[X]) = {expected_function:.4f}")
+print(f"\\mathbb{{E}}[\\varphi(X)] = {function_expected:.4f}")
+```
+
+The computational example demonstrates that $\mathbb{E}[\varphi(X)]$ consistently exceeds or equals $\varphi(\mathbb{E}[X])$ for our convex function, confirming the theoretical inequality.
+
+Jensen's inequality provides a fundamental tool for understanding relationships between expectations and nonlinear transformations. Its visual interpretation offers intuitive insights into why these relationships hold true across various domains in quantitative analysis.
 
 ---

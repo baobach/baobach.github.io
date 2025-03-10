@@ -1,4 +1,8 @@
-[![pages-build-deployment](https://github.com/baobach/baobach.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/baobach/baobach.github.io/actions/workflows/pages/pages-build-deployment)
+---
+# the default layout is 'page'
+icon: fas fa-info-circle
+order: 4
+---
 
 # Hi &nbsp;👋
 
@@ -6,9 +10,11 @@ My name is Robert and I am pursuing a career in Quantitative Finance. I want to 
 
 Reach me at: <robert@quantfin.net>
 
+[![pages-build-deployment](https://github.com/baobach/baobach.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/baobach/baobach.github.io/actions/workflows/pages/pages-build-deployment)
+
 ## Key Skills & Tools &nbsp;🧰
 
-![Python](https://img.shields.io/badge/-Python-0D1117?style=flat-square&logo=python)
+![Python](https://img.shields.io/badge/-Python-0D1117?style=flat-square&logo=python)\
 ![C#](https://img.shields.io/badge/C%23-%23239120.svg?logo=csharp&logoColor=white)
 ![Bash](https://img.shields.io/badge/-Bash-0D1117?style=flat-square&logo=gnu-bash)
 ![Git](https://img.shields.io/badge/-Git-0D1117?style=flat-square&logo=git)
@@ -41,5 +47,7 @@ Reach me at: <robert@quantfin.net>
 
 ## Education &nbsp;🎓
 
+Ph.D Computer Sceince\
+**University of Central Florida, Orlando FL**
 Certificate in Quantitative Finance, CQF\
 **FitchLearning, London**
