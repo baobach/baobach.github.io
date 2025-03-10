@@ -1,7 +1,7 @@
 ---
 title: 'Visual Intuition Behind Jensen Inquality'
 date: 2025-03-01
-permalink: /posts/2025/03/jensen-inequality/
+categories: [Mathematics]
 tags:
   - mathematics
   - probability theory

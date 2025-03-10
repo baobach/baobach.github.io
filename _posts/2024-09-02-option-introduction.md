@@ -1,7 +1,7 @@
 ---
 title: 'In-Depth Guide to Simulating Paths with the Euler-Maruyama Scheme for Exotic Options Pricing'
 date: 2024-09-11
-permalink: /posts/2024/09/devdocs/
+categories: [Quantitative Finance, Tutorial]
 tags:
   - quantitative finance
   - options
