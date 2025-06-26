@@ -1,9 +1,3 @@
----
-# the default layout is 'page'
-icon: fas fa-info-circle
-order: 4
----
-
 # Hi &nbsp;👋
 
 My name is Robert and I am pursuing a career in Quantitative Finance. I want to apply my mathematical skills in machine learning algorithm development, portfolio return optimization, and trading derivatives. I am seeking opportunities to contribute expertise in quantitative finance, data analysis, and computational skills to drive innovative strategies in the financial domain.
