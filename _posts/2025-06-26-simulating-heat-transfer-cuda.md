@@ -271,7 +271,7 @@ To run and visualize your CUDA simulation, you'll need a GPU-enabled virtual mac
 
 ### 1. Provision a GPU VM on Google Cloud
 
-You can quickly spin up a VM with an NVIDIA Tesla T4 GPU and pre-installed CUDA using a `gcloud` command. For detailed instructions on this setup, refer to my previous post: ["Launch a Google Cloud GPU VM and Run CUDA in Under 10 Minutes"](/2025/06/21/starting-cuda.html). Once your VM is running, note its **External IP**.
+You can quickly spin up a VM with an NVIDIA Tesla T4 GPU and pre-installed CUDA using a `gcloud` command. For detailed instructions on this setup, refer to my previous post: ["Launch a Google Cloud GPU VM and Run CUDA in Under 10 Minutes"](/posts/starting-cuda/). Once your VM is running, note its **External IP**.
 
 ### 2. Connect Seamlessly with VS Code Remote SSH
 
