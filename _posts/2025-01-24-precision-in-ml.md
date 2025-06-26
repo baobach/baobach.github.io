@@ -1,6 +1,7 @@
 ---
 title: 'Accuracy vs Precision in Algorithmic Trading Using Machine Learning Models'
 date: 2025-01-24
+categories: [Quantitative Finance]
 tags:
   - quantitative finance
   - machine learning
