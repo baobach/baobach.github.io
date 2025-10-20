@@ -186,12 +186,6 @@ If you're building systems that process continuous data streams with complex mul
 
 6. Xinyi Ye, Xiangyang Gou, Lei Zou, and Wenjie Zhang. "AJOSC: Adaptive Join Order Selection for Continuous Queries." *Proceedings of the ACM on Management of Data*, vol. 3, no. 3, 2025, pp. 1-27. [https://dl.acm.org/doi/10.1145/3725263](https://dl.acm.org/doi/10.1145/3725263)
 
-## Further Reading
-
-- [Original AJOSC Paper (ACM Digital Library)](https://dl.acm.org/doi/10.1145/3725263)
-- [Selinger et al. - Classic Query Optimization](https://dl.acm.org/doi/10.1145/582095.582099)
-- [Join Order Benchmark (JOB)](http://www.vldb.org/pvldb/vol9/p204-leis.pdf)
-
 ---
 
 **Questions or insights?** Have you encountered join order optimization challenges in streaming systems? I'd love to hear about your experiences. Connect with me on [LinkedIn](https://www.linkedin.com/in/robertbachvan/) to continue the discussion.
