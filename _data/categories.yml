@@ -1,0 +1,8 @@
+# Controlled category list. Posts use one or two of these, main topic first.
+# Read by tools/publish.py and tools/lint_posts.py. Add entries only with the owner's OK.
+- Quantitative Finance
+- Mathematics
+- Artificial Intelligence
+- Programming
+- Database Systems
+- Tutorial

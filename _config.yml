@@ -8,7 +8,7 @@ theme: jekyll-theme-chirpy
 # otherwise, the layout language will use the default value of 'en'.
 lang: en
 
-# Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
+# Change to your timezone › https://zones.arilyn.cc
 timezone: America/New_York
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
@@ -36,6 +36,7 @@ social:
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
   name: Robert Bach
   email: robert@quantfin.net # change to your email address
+  fediverse_handle: # fill in your fediverse handle. E.g. "@username@domain.com"
   links:
     # The first element serves as the copyright owner's link
     - https://x.com/robert_bach_ # change to your X homepage
@@ -59,7 +60,7 @@ webmaster_verifications:
 # Web Analytics Settings
 analytics:
   google:
-    id: # fill in your Google Analytics ID
+    id: G-QLE3R8VYTF # GA4 Measurement ID (injected only when JEKYLL_ENV=production)
   goatcounter:
     id: # fill in your GoatCounter ID
   umami:
@@ -103,14 +104,24 @@ avatar: /assets/img/profile_picture.jpeg
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
-social_preview_image: # string, local or CORS resources
+social_preview_image: /assets/img/social-preview.png # string, local or CORS resources
 
 # boolean type, the global switch for TOC in posts.
 toc: true
 
+actions:
+  # Display "Edit this post" action on each post page to encourage contributions.
+  edit_post:
+    enabled: false # set to true to display the "Edit this post" action.
+    url: "" # repository base URL, e.g. https://github.com/cotes2020/jekyll-theme-chirpy/edit/master
+    # Use dynamic or static URL for the edit link.
+    # If `static_url` is false, the post's path will be appended to the `url` above as the final edit link.
+    # Set to true if the URL should remain unchanged, which means each post will share the same edit link.
+    static_url: false # [ true | false ]
+
 comments:
   # Global switch for the post-comment system. Keeping it empty means disabled.
-  provider: # [disqus | utterances | giscus]
+  provider: giscus # [disqus | utterances | giscus]
   # The provider options are as follows:
   disqus:
     shortname: # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
@@ -120,10 +131,10 @@ comments:
     issue_term: # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
-    repo: # <gh-username>/<repo>
-    repo_id:
-    category:
-    category_id:
+    repo: baobach/baobach.github.io # <gh-username>/<repo>
+    repo_id: R_kgDOMp4Ldg
+    category: Announcements
+    category_id: DIC_kwDOMp4Lds4DJLbC
     mapping: # optional, default to 'pathname'
     strict: # optional, default to '0'
     input_position: # optional, default to 'bottom'
@@ -214,8 +225,15 @@ exclude:
   - README.md
   - LICENSE
   - purgecss.js
-  - rollup.config.js
+  - "*.config.js"
   - "package*.json"
+  - inbox
+  - scripts
+  - AGENTS.md
+  - CLAUDE.md
+  - CLEANUP_PLAN.md
+  - .claude
+  - .agents
 
 jekyll-archives:
   enabled: [categories, tags]

@@ -10,7 +10,7 @@ My name is Robert and I am pursuing a career in Quantitative Finance. I want to 
 
 Reach me at: <robert@quantfin.net>
 
-[![pages-build-deployment](https://github.com/baobach/baobach.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/baobach/baobach.github.io/actions/workflows/pages/pages-build-deployment)
+[![Build and Deploy](https://github.com/baobach/baobach.github.io/actions/workflows/pages-deploy.yml/badge.svg)](https://github.com/baobach/baobach.github.io/actions/workflows/pages-deploy.yml)
 
 ## Key Skills & Tools &nbsp;🧰
 

@@ -1,68 +1,53 @@
----
-# the default layout is 'page'
-icon: fas fa-info-circle
-order: 4
----
+# quantfin.net
 
-# Hi &nbsp;👋
+Source for [quantfin.net](https://quantfin.net), a blog on quantitative finance, mathematics, and machine learning by Robert Bach.
 
-My name is Robert and I am pursuing a career in Quantitative Finance. I want to apply my mathematical skills in machine learning algorithm development, portfolio return optimization, and trading derivatives. I am seeking opportunities to contribute expertise in quantitative finance, data analysis, and computational skills to drive innovative strategies in the financial domain.
+## Stack
 
-Reach me at: <robert@quantfin.net>
+- [Jekyll](https://jekyllrb.com) with the [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) theme gem. Ruby version is pinned in `.ruby-version`; gems are locked in `Gemfile.lock`.
+- GitHub Pages, deployed by GitHub Actions. Pull requests run the checks; a push to `master` builds, checks, and deploys the live site.
+- Custom domain `quantfin.net` (set in the repository's Pages settings).
 
-[![pages-build-deployment](https://github.com/baobach/baobach.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/baobach/baobach.github.io/actions/workflows/pages/pages-build-deployment)
+Post URLs are `/posts/<slug>/`, where `<slug>` is the post filename without the date. Never rename an existing file in `_posts/`: that changes its URL.
 
-## Key Skills & Tools &nbsp;🧰
+## Layout
 
-<table>
-  <tr>
-    <!-- Programming Languages -->
-    <td><img src="https://img.shields.io/badge/-Python-0D1117?style=flat-square&logo=python" alt="Python"/></td>
-    <td><img src="https://img.shields.io/badge/-C-0D1117?style=flat-square&logo=c" alt="C"/></td>
-    <td><img src="https://img.shields.io/badge/-C++-0D1117?style=flat-square&logo=cplusplus" alt="C++"/></td>
-    <td><img src="https://img.shields.io/badge/-Bash-0D1117?style=flat-square&logo=gnu-bash" alt="Bash"/></td>
-    <td><img src="https://img.shields.io/badge/-PHP-0D1117?style=flat-square&logo=php" alt="PHP"/></td>
-  </tr>
-  <tr>
-    <!-- Data/Database/Cloud -->
-    <td><img src="https://img.shields.io/badge/-PostgreSQL-0D1117?style=flat-square&logo=postgresql" alt="PostgreSQL"/></td>
-    <td><img src="https://img.shields.io/badge/-MongoDB-0D1117?style=flat-square&logo=mongodb" alt="MongoDB"/></td>
-    <td><img src="https://img.shields.io/badge/-GCP-0D1117?style=flat-square&logo=googlecloud" alt="GCP"/></td>
-    <td><img src="https://img.shields.io/badge/-Docker-0D1117?style=flat-square&logo=docker" alt="Docker"/></td>
-    <td><img src="https://img.shields.io/badge/-Git-0D1117?style=flat-square&logo=git" alt="Git"/></td>
-  </tr>
-  <tr>
-    <!-- Frameworks & Libraries -->
-    <td><img src="https://img.shields.io/badge/-Laravel-0D1117?style=flat-square&logo=laravel" alt="Laravel"/></td>
-    <td><img src="https://img.shields.io/badge/-Anaconda-0D1117?style=flat-square&logo=anaconda" alt="Anaconda"/></td>
-    <td><img src="https://img.shields.io/badge/-NumPy-0D1117?style=flat-square&logo=numpy" alt="NumPy"/></td>
-    <td><img src="https://img.shields.io/badge/-Pandas-0D1117?style=flat-square&logo=pandas" alt="Pandas"/></td>
-    <td><img src="https://img.shields.io/badge/-SciPy-0D1117?style=flat-square&logo=scipy" alt="SciPy"/></td>
-  </tr>
-  <tr>
-    <!-- ML/DS Libraries -->
-    <td><img src="https://img.shields.io/badge/-CUDA-0D1117?style=flat-square&logo=nvidia" alt="CUDA"/></td>
-    <td><img src="https://img.shields.io/badge/-Scikit_Learn-0D1117?style=flat-square&logo=scikitlearn" alt="Scikit Learn"/></td>
-    <td><img src="https://img.shields.io/badge/-Tensorflow-0D1117?style=flat-square&logo=tensorflow" alt="Tensorflow"/></td>
-    <td><img src="https://img.shields.io/badge/-Keras-0D1117?style=flat-square&logo=keras" alt="Keras"/></td>
-    <td><img src="https://img.shields.io/badge/-Plotly-0D1117?style=flat-square&logo=plotly" alt="Plotly"/></td>
-  </tr>
-</table>
+```
+_posts/            published posts, YYYY-MM-DD-<slug>.md
+_tabs/             sidebar pages (about, archives, categories, tags)
+_data/             contact icons, share buttons, controlled category list
+_plugins/          last-modified date from git history
+assets/img/posts/  images for new posts, one folder per slug
+assets/img/blog/   images for posts written before 2026 (left in place)
+inbox/             drafts waiting to be published (not built)
+scripts/<slug>/    code that generated a post's figures or results (not built)
+tools/             run.sh, check.sh, publish.py, lint_posts.py
+AGENTS.md          instructions and writing style for AI agents
+```
 
-* Quant skills: Probability theory, Stochastic Calculus, Montecarlo Method, Risk Modeling, Portfolio Optimization, Algorithmic Trading Strategy;
-* Latex: various documents and custom templates;
-* Agile project management methodology.
+## Publish a post
 
-## Work Experience &nbsp;👔
+1. Create `inbox/<slug>/post.md` and put every picture it uses next to it. Reference pictures by filename, e.g. `![Payoff of a long call](payoff.png)` or the Obsidian form `![[payoff.png]]`. Front matter is optional; see `inbox/README.md`.
+2. In Claude Code, run `/publish <slug>`. It fills in missing front matter (and asks you to confirm), converts images to WebP, moves everything into place, runs the checks, and opens a pull request.
+3. Merge the pull request. The site deploys in a couple of minutes.
 
-| Position                       | Company                  | Field                          | Time Period       |
-| ------------------------------ | ------------------------ | ------------------------------ | ----------------- |
-| Algorithmic Trading Consultant | Consultant on Upwork     | Algorithmic Trading            | 01/2024 — Present |
-| Quant Researcher               | Riot Investment Strategy | Backtesting Engine             | 01/2024 — Present |
-| Growth Manager                 | Incognito.org            | Growth Consulting - Blockchain | 12/2021 — 02/2023 |
+To run the pipeline by hand: `uv run tools/publish.py <slug>`.
 
-## Education &nbsp;🎓
+## Local development
 
-Ph.D Computer Sceince: **University of Central Florida, Orlando FL**
+```bash
+bundle install
+bash tools/run.sh        # serve at http://127.0.0.1:4000 with live reload
+bash tools/check.sh      # production build, htmlproofer, post linter (same as CI)
+```
 
-Certificate in Quantitative Finance: **CQF, FitchLearning, London, England**
+## Agents
+
+Two AI agents work in this repo. Both read `AGENTS.md`.
+
+- **Claude Code** (on the Mac) owns structure and publishing: config, CI, tooling, theme upgrades, SEO, final edits, `/publish`, and merging into `master` after approval.
+- **Hermes Agent** (on dsg-lab-2) is a drafting assistant. It writes first drafts into `inbox/<slug>/` on `hermes/<slug>` branches and never touches anything else. Claude fact-checks every Hermes draft before it is published.
+
+## License
+
+`LICENSE` is the MIT license inherited from the [Chirpy starter](https://github.com/cotes2020/chirpy-starter) (copyright Cotes Chung).

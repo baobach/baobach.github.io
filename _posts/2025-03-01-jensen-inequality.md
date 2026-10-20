@@ -1,14 +1,18 @@
 ---
-title: 'Visual Intuition Behind Jensen Inquality'
+title: "Visual Intuition Behind Jensen's Inequality"
 date: 2025-03-01
 categories: [Mathematics]
 tags:
   - mathematics
-  - probability theory
-  - convex analysis
-  - quantitative finance
+  - probability-theory
+  - convex-analysis
+  - quantitative-finance
 
 math: true
+description: "A geometric picture of Jensen's inequality for convex functions, with a Python plot and what it implies for returns, risk, and option pricing."
+image:
+  path: /assets/img/posts/jensen-inequality/social.jpg
+  alt: "Parabola phi(x) = x squared with the chord from x = -1.5 to 1.5: the mean of phi(X), 2.25, lies above phi of the mean, 0"
 ---
 
 Jensen's inequality forms a cornerstone of probability theory and convex analysis, establishing a relationship between the expected value of a function and the function of an expected value. The mathematical formulation states that for a convex function $\varphi$ and a random variable $X$:
@@ -17,13 +21,13 @@ $$
 \varphi(\mathbb{E}[X]) \leq \mathbb{E}[\varphi(X)]
 $$
 
-This inequality has profound implications in statistics, inftyormation theory, and financial mathematics. Understanding its geometric interpretation provides deeper insights into why this relationship holds true and its practical applications.
+This inequality has profound implications in statistics, information theory, and financial mathematics. Understanding its geometric interpretation provides deeper insights into why this relationship holds true and its practical applications.
 
 ## Geometric Interpretation
 
 The geometric interpretation of Jensen's inequality emerges from the definition of convex functions. A function is convex when a line segment between any two points on its graph lies above or on the graph. For a convex function $\varphi(x)$, consider two points $x_1$ and $x_2$. The weighted average of their function values will always be greater than or equal to the function value of their weighted average.
 
-![Jensen's Inequality Visualization](/assets/img/blog/jensen_inequality.png)
+![Parabola phi(x) = x squared with the chord from x = -1.5 to 1.5: the mean of phi(X), 2.25, lies above phi of the mean, 0](/assets/img/blog/jensen_inequality.png){: w="2968" h="1728" }
 
 In the visualization above, the blue curve represents a convex function $\varphi(x)$. The red line segment connects two points $(x_1, \varphi(x_1))$ and $(x_2, \varphi(x_2))$. Any point on this line segment represents a weighted average of the function values, while the corresponding point on the curve represents the function value of the weighted average of $x_1$ and $x_2$.
 
@@ -55,7 +59,7 @@ $$
 \mathbb{E}[e^X] \geq e^{\mathbb{E}[X]}
 $$
 
-This relationship becomes crucial when dealing with options pricing and risk-neutral valuation, where the convexity of payoff functions plays a central role.
+This relationship becomes crucial when dealing with [options pricing](/posts/option-introduction/) and risk-neutral valuation, where the convexity of payoff functions plays a central role.
 
 ## Practical Implications
 

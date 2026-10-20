@@ -1,7 +1,6 @@
 # Bundler cache
 .bundle
 vendor
-Gemfile.lock
 
 # Jekyll cache
 .jekyll-cache
@@ -25,4 +24,14 @@ package-lock.json
 # Misc
 _sass/vendors
 assets/js/dist
-GEMINI.md
+
+# Hidden system files
+*~
+.DS_Store
+Thumbs.db
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Python
+__pycache__/
