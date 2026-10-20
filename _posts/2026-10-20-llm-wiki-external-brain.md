@@ -9,7 +9,7 @@ image:
   alt: "Data flow of the vault: the digest skill turns raw sources into fleeting notes, qna answers from the index and notes, wiki rebuilds the index and proposes promotions you approve, and lint scans notes into reports"
 ---
 
-> **TL;DR:** One Markdown file (`AGENTS.md`) defines the vault's structure and rules, four small skills (`/digest`, `/wiki`, `/qna`, `/lint`) do the maintenance, a fifth (`/explain`) turns notes into pages you can actually read, and an `Index.md` plus an append-only `Log.md` let any coding agent find its way around. A bootstrap script and a link checker at the end set the whole thing up in a minute.
+> **TL;DR:** One Markdown file (`AGENTS.md`) defines the vault's structure and rules, four small skills (`/digest`, `/wiki`, `/qna`, `/lint`) do the maintenance, a fifth (`/explain`) turns notes into pages you can actually read, and an `Index.md` plus an append-only `Log.md` let any coding agent find its way around. Everything is packaged as [llm-wiki-vault](https://github.com/baobach/llm-wiki-vault), an installer that sets the whole thing up in a minute.
 
 A personal knowledge base fails in a predictable way: capturing is cheap, so notes pile up, while the upkeep (linking, merging, re-indexing, catching contradictions) never happens. Andrej Karpathy's [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) proposes handing that upkeep to an LLM: raw sources go in one folder, the model compiles them into an interlinked Markdown wiki, and a schema file tells it how. In his words, "Obsidian is the IDE; the LLM is the programmer; the wiki is the codebase."
 
@@ -73,7 +73,7 @@ The schema lives in `AGENTS.md`, because that is the file most coding agents alr
 
 Codex reads `AGENTS.md` natively. Claude Code reads `CLAUDE.md`, so that file contains a single import line, `@AGENTS.md`, and nothing else. Hermes Agent loads the first non-empty file from `.hermes.md`, `AGENTS.md`, `CLAUDE.md`, and `.cursorrules`, in that order, so it also lands on `AGENTS.md` as long as you never create a `.hermes.md`. The result is one source of truth: you change a rule once and all three agents follow it.
 
-Here is the `AGENTS.md` the bootstrap script writes. It is short because agents read it on every session, and a small local model pays for every token of it.
+Here is the `AGENTS.md` the installer writes. It is short because agents read it on every session, and a small local model pays for every token of it.
 
 {% raw %}
 ````markdown
@@ -165,6 +165,12 @@ The lock works on one machine only, because `.locks/` is not synced.
   applies lint fixes, and it logs to `Log-hermes.md` instead of `Log.md`.
   The skills it must not run (`/wiki`, `/lint`, `/explain`) say so in their
   first line.
+
+## About this file
+
+Installed by llm-wiki-vault (https://github.com/baobach/llm-wiki-vault).
+Change it freely: `install.sh --update-skills` updates the skills and
+`wiki_lint.py`, and never touches this file.
 ````
 {% endraw %}
 
@@ -247,36 +253,50 @@ The second is a richer output format. A `/qna` answer about a flow or a hierarch
 
 ## Setting It Up
 
-The bootstrap script creates the folders, `AGENTS.md`, `CLAUDE.md`, `Index.md`, `Log.md`, a note template, the five skills for Claude Code, a copy of them for Codex and Hermes, and a git repository. If `wiki_lint.py` (the link checker below) sits next to the script, it also goes into the vault root, where `/lint` runs it. It never overwrites an existing file, so you can also run it over an existing vault to add only what is missing. The full script is in the [blog repository](https://github.com/baobach/baobach.github.io/tree/master/scripts/llm-wiki-external-brain).
+Everything above ships as [llm-wiki-vault](https://github.com/baobach/llm-wiki-vault), an MIT-licensed repository with the installer, the five skills, the `AGENTS.md` template, and the link checker. The installer creates the folders, `AGENTS.md`, `CLAUDE.md`, `Index.md`, `Log.md`, a note template, the skills for Claude Code (`.claude/skills/`) and for Codex and Hermes (`.agents/skills/`), `wiki_lint.py`, and a git repository. It never overwrites an existing file, so you can also run it over an existing vault to add only what is missing. Install from a clone, or with one line pinned to a release:
 
 ```bash
-curl -fsSLO https://raw.githubusercontent.com/baobach/baobach.github.io/master/scripts/llm-wiki-external-brain/bootstrap_vault.sh
-curl -fsSLO https://raw.githubusercontent.com/baobach/baobach.github.io/master/scripts/llm-wiki-external-brain/wiki_lint.py
-less bootstrap_vault.sh wiki_lint.py    # read them before you run them
-bash bootstrap_vault.sh ~/external-brain
+git clone https://github.com/baobach/llm-wiki-vault.git
+cd llm-wiki-vault && ./install.sh ~/external-brain
+
+# or, without cloning (read install.sh on GitHub first):
+curl -fsSL https://raw.githubusercontent.com/baobach/llm-wiki-vault/v0.1.0/install.sh | bash -s -- ~/external-brain
 ```
 
 ```
-wrote  AGENTS.md
-wrote  CLAUDE.md
-wrote  Index.md
-wrote  Log.md
-wrote  Templates/Note Template.md
-wrote  .gitignore
-wrote  .claude/skills/digest/SKILL.md
-wrote  .claude/skills/wiki/SKILL.md
-wrote  .claude/skills/qna/SKILL.md
-wrote  .claude/skills/lint/SKILL.md
-wrote  .claude/skills/explain/SKILL.md
-copied .agents/skills/digest
-copied .agents/skills/wiki
-copied .agents/skills/qna
-copied .agents/skills/lint
-copied .agents/skills/explain
-copied wiki_lint.py
-initialized git repository
-vault ready at /Users/you/external-brain
+> downloading baobach/llm-wiki-vault@v0.1.0
+> llm-wiki-vault 0.1.0 into /Users/you/external-brain
+added   AGENTS.md
+added   CLAUDE.md
+added   Index.md
+added   Log.md
+added   Templates/Note Template.md
+added   .gitignore
+added   .claude/skills/digest/SKILL.md
+added   .agents/skills/digest/SKILL.md
+added   .claude/skills/wiki/SKILL.md
+added   .agents/skills/wiki/SKILL.md
+added   .claude/skills/qna/SKILL.md
+added   .agents/skills/qna/SKILL.md
+added   .claude/skills/lint/SKILL.md
+added   .agents/skills/lint/SKILL.md
+added   .claude/skills/explain/SKILL.md
+added   .agents/skills/explain/SKILL.md
+added   wiki_lint.py
+added   .git (git init)
+
+> done: 17 added, 0 updated
+Next steps:
+  1. Open "/Users/you/external-brain" as a vault in Obsidian.
+  2. Claude Code: cd into the vault, run claude, then /digest, /qna, /wiki, /lint, /explain.
+     Codex: run codex in the vault, then $digest (or /skills).
+     Hermes Agent: trust the vault once per machine (this replaces the whole list,
+     so include any folders you already trust):
+       hermes config set skills.trusted_project_dirs '["/Users/you/external-brain"]'
+  3. Keep the vault in a private git repository: it holds your notes.
 ```
+
+Updates come through the same script: `./install.sh --update-skills ~/external-brain` after a `git pull` replaces the skills and the linter with the new version, keeps each replaced file as a timestamped backup, and adds a line to `Log.md`. It never touches your `AGENTS.md`, since that is the file you are meant to customize. If you only want the skill files in an existing setup, `npx skills add baobach/llm-wiki-vault` installs them with the [skills CLI](https://github.com/vercel-labs/skills), but they expect the folders and rules that the installer provides.
 
 Then open the folder as a vault in Obsidian, point the core Templates plugin at `Templates/`, and install the [Web Clipper](https://obsidian.md/clipper) with its output folder set to `raw/`. From then on, the daily loop is short: clip something and run `/digest`, ask questions with `/qna` (or `/explain` for a whole topic), run `/wiki` once a week or so to refresh the index and review promotions, and run `/lint` every few weeks.
 
