@@ -40,7 +40,7 @@ gcloud compute instances create instance-20250621-104916 \
 
 Once the VM spins up, grab its **External IP** from your Google Cloud Console.
 
-![GPU VM Ready](/assets/img/blog/2025-06-21-starting-cuda-vm-page.png)
+![GPU VM Ready](/assets/img/blog/2025-06-21-starting-cuda-vm-page.png){: w="2206" h="964" }
 
 ## Step 2 — Connect Seamlessly with VS Code Remote SSH
 
@@ -67,7 +67,7 @@ In VS Code:
 
 You’ll get a full terminal and code editor — no local compiler required.
 
-![VS Code Connected](/assets/img/blog/2025-06-21-vscode-ssh-nvidia-smi.png)
+![VS Code Connected](/assets/img/blog/2025-06-21-vscode-ssh-nvidia-smi.png){: w="2084" h="1744" }
 
 Confirm the GPU is online:
 

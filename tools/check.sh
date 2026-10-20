@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #
-# Build and check the site with the same steps CI runs.
+# Build and check the site with the same steps CI runs:
+# production build, htmlproofer, post linter.
 #
 # Usage: bash tools/check.sh [--external]
 #   --external   also check external links (slow; the weekly CI job does this)
@@ -52,5 +53,8 @@ if ! $external; then
   proofer_opts+=(--disable-external)
 fi
 bundle exec htmlproofer "$SITE_DIR" "${proofer_opts[@]}"
+
+echo "> Linting posts"
+uv run --quiet tools/lint_posts.py
 
 echo "> All checks passed."

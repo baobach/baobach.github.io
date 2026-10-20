@@ -22,7 +22,7 @@ In the realm of scientific computing and high-performance simulations, the abili
 
 We begin by modeling a rectangular room divided into a grid. Within this grid, we'll place a handful of **heaters** at fixed temperatures. These heater cells maintain a constant temperature throughout the simulation.
 
-![Diagram of a rectangular room with scattered heaters](/assets/img/blog/heat-transfer-room.png)
+![Diagram of a rectangular room with scattered heaters](/assets/img/blog/heat-transfer-room.png){: w="970" h="644" }
 
 Heat "flows" between a cell and its immediate neighbors (top, bottom, left, right) at each time step. The new temperature of a grid cell is computed based on the differences between its current temperature and the temperatures of its neighbors. The update equation is as follows:
 
@@ -36,7 +36,7 @@ $$
 T_{\text{NEW}} = T_{\text{OLD}} + k \cdot(T_{\text{TOP}} + T_{\text{BOTTOM}} + T_{\text{LEFT}} + T_{\text{RIGHT}} - 4 \cdot T_{\text{OLD}})
 $$
 
-![Diagram showing heat flow between a cell and its neighbors](/assets/img/blog/heat-transfer-flow.png)
+![Diagram showing heat flow between a cell and its neighbors](/assets/img/blog/heat-transfer-flow.png){: w="350" h="328" }
 
 ## Implementing the Simulation Logic on GPU
 
@@ -61,7 +61,7 @@ To optimize memory access patterns, especially given the spatial locality in our
 
 Threads access texture memory using specialized functions like `tex1Dfetch()` or `tex2D()`, which route memory requests through the texture unit. This unit handles the caching and addressing, allowing threads to retrieve data faster than direct global memory accesses when the access pattern aligns with texture memory's strengths.
 
-![Diagram showing how threads access texture memory](/assets/img/blog/texture-memory-access.png)
+![Diagram showing how threads access texture memory](/assets/img/blog/texture-memory-access.png){: w="1264" h="532" }
 
 First, we declare our input and output buffers as texture references on the GPU side. These will be floating-point textures to accommodate our temperature data:
 

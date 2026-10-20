@@ -36,14 +36,13 @@ categories: [Quantitative Finance, Tutorial]
 tags: [monte-carlo, options, python]
 description: "One sentence, 50 to 160 characters, written for the search result snippet."
 math: true
-media_subpath: /assets/img/posts/barrier-options-monte-carlo
 image:
-  path: social.jpg
+  path: /assets/img/posts/barrier-options-monte-carlo/social.jpg
   alt: "Simulated paths knocked out at the barrier"
 ---
 ```
 
-- **Required:** `title`, `categories`, `tags`, `description`. `tools/publish.py` fills `date` (today, America/New_York), `math`, `media_subpath`, and `image`.
+- **Required:** `title`, `categories`, `tags`, `description`. `tools/publish.py` fills `date` (today, America/New_York), `math`, and `image`. Don't use `media_subpath`: with jekyll-seo-tag 2.9 it breaks `og:image`, so media links are root-relative (`/assets/img/posts/<slug>/...`).
 - **categories:** one or two values from `_data/categories.yml`, main topic first: Quantitative Finance, Mathematics, Artificial Intelligence, Programming, Database Systems, Tutorial. Add a category only with the user's OK.
 - **tags:** free-form, lowercase, hyphenated (`monte-carlo`, not `Monte Carlo`).
 - **description:** 50 to 160 characters, no em dashes. It is the meta description and the home-page excerpt.
@@ -52,7 +51,7 @@ image:
 ## Images and scripts
 
 - In `inbox/<slug>/`, reference pictures by filename: `![Payoff of a long call](payoff.png)` or the Obsidian form `![[payoff.png|Payoff of a long call]]`. Every image needs alt text that describes what it shows.
-- `publish.py` converts PNG/JPG to WebP (max 1600 px wide), keeps GIF, MP4, and SVG, adds `{: w="..." h="..." }` size attributes, and writes everything to `assets/img/posts/<slug>/`. Prefer MP4 over GIFs above 1 MB.
+- `publish.py` converts PNG/JPG to WebP (max 1600 px wide), keeps GIF, MP4, and SVG, adds `{: w="..." h="..." }` size attributes, writes everything to `assets/img/posts/<slug>/`, and rewrites the links to root-relative paths. Prefer MP4 over GIFs above 1 MB.
 - Videos: `![[heat.mp4|Heat spreading from the heaters]]` becomes Chirpy's `{% include embed/video.html %}`.
 - Code that generated a figure goes in `inbox/<slug>/scripts/` (moved to `scripts/<slug>/`). Each script starts with a header comment naming its purpose and post; add `requirements.txt` when it needs packages beyond the standard library.
 
