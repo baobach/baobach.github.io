@@ -1,17 +1,20 @@
 ---
 title: 'Simulating Heat Transfer with CUDA: From Code to Cloud Visualization'
 date: 2025-06-26
-categories: [Artificial Intelligence, Programming, Tutorial]
+categories: [Programming, Tutorial]
 tags:
   - cuda
   - gpu
   - simulation
-  - heat transfer
-  - cloud computing
+  - heat-transfer
+  - cloud-computing
   - gcp
   - x11
 math: true
 description: "Learn how to simulate heat transfer using CUDA, compile and run your code on a Google Cloud GPU VM, and visualize the results remotely using X11 forwarding."
+image:
+  path: /assets/img/posts/simulating-heat-transfer-cuda/social.jpg
+  alt: "Diagram of a rectangular room with scattered heaters"
 ---
 
 ## Introduction

@@ -1,12 +1,16 @@
 ---
 title: 'Launch a Google Cloud GPU VM and Run CUDA in Under 10 Minutes'
 date: 2025-06-21
-categories: [Artificial Inteligence]
+categories: [Artificial Intelligence]
 tags:
   - gcp
   - cuda
-  - cloud computing
+  - cloud-computing
   - ssh
+description: "Create a Google Cloud VM with an NVIDIA T4 GPU, connect from VS Code over SSH, compile a first CUDA program, and keep GPU costs under control."
+image:
+  path: /assets/img/posts/starting-cuda/social.jpg
+  alt: "Google Cloud machine configuration with one NVIDIA T4 GPU and a monthly estimate of about US$204"
 ---
 
 Modern GPU computing shouldn’t demand a complex local setup or expensive hardware. With Google Cloud, you can spin up an NVIDIA Tesla T4 GPU in minutes, connect straight from VS Code, and run your first CUDA kernel instantly — no fuss, no surprises on your bill. This hands-on guide shows you exactly how.
@@ -40,7 +44,7 @@ gcloud compute instances create instance-20250621-104916 \
 
 Once the VM spins up, grab its **External IP** from your Google Cloud Console.
 
-![GPU VM Ready](/assets/img/blog/2025-06-21-starting-cuda-vm-page.png){: w="2206" h="964" }
+![Google Cloud machine configuration with one NVIDIA T4 GPU and a monthly estimate of about US$204](/assets/img/blog/2025-06-21-starting-cuda-vm-page.png){: w="2206" h="964" }
 
 ## Step 2 — Connect Seamlessly with VS Code Remote SSH
 
@@ -67,7 +71,7 @@ In VS Code:
 
 You’ll get a full terminal and code editor — no local compiler required.
 
-![VS Code Connected](/assets/img/blog/2025-06-21-vscode-ssh-nvidia-smi.png){: w="2084" h="1744" }
+![VS Code connected over Remote SSH, with nvidia-smi showing a Tesla T4 and CUDA 12.4](/assets/img/blog/2025-06-21-vscode-ssh-nvidia-smi.png){: w="2084" h="1744" }
 
 Confirm the GPU is online:
 

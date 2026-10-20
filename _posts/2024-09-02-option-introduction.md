@@ -3,11 +3,15 @@ title: 'In-Depth Guide to Simulating Paths with the Euler-Maruyama Scheme for Ex
 date: 2024-09-11
 categories: [Quantitative Finance, Tutorial]
 tags:
-  - quantitative finance
+  - quantitative-finance
   - options
-  - pricing model
-  - option pricing theory
+  - pricing-model
+  - option-pricing-theory
 math: true
+description: "Simulate stock price paths with the Euler-Maruyama scheme in Python and price Asian and lookback options by Monte Carlo under the risk-neutral measure."
+image:
+  path: /assets/img/posts/option-introduction/social.jpg
+  alt: "100 stock price paths simulated with the Euler-Maruyama scheme over 252 time steps, starting at 100"
 ---
 
 In the world of finance, exotic options offer unique payoff structures that are highly sensitive to the path taken by the underlying asset. Traditional pricing models like Black-Scholes are not sufficient for such path-dependent options, so we turn to simulation methods. One of the most efficient methods for simulating asset prices is the **Euler-Maruyama scheme**, which is used to approximate solutions for stochastic differential equations (SDEs) like the geometric Brownian motion (GBM) that models asset prices.
@@ -140,7 +144,7 @@ plt.title('Euler-Maruyama Scheme - 100 Simulated Paths')
 plt.show()
 ```
 
-![Euler-Maruyama Plot](/assets/img/blog/euler-method.png){: w="580" h="455" }
+![100 stock price paths simulated with the Euler-Maruyama scheme over 252 time steps, starting at 100](/assets/img/blog/euler-method.png){: w="580" h="455" }
 
 ## Pricing Exotic Options
 

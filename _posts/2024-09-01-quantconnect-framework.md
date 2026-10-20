@@ -3,9 +3,10 @@ title: 'Mastering QuantConnect’s Algorithm Framework for Efficient Trading Str
 date: 2024-09-01
 categories: [Quantitative Finance, Tutorial]
 tags:
-  - algorithmic trading
+  - algorithmic-trading
   - quantconnect
   - python
+description: "A tour of QuantConnect's backtesting, paper trading, and free data, then a portfolio algorithm built from the five Algorithm Framework modules."
 ---
 [QuantConnect](https://www.quantconnect.com) is an innovative, browser-based platform designed for algorithmic trading. Whether you're a seasoned quant or just beginning, QuantConnect offers a robust environment to develop, test, and execute trading strategies using modern programming languages like Python and C#. The platform’s intuitive interface and vast data resources make it a go-to choice for traders at all levels.
 

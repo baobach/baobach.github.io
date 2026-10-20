@@ -3,11 +3,15 @@ title: 'Accuracy vs Precision in Algorithmic Trading Using Machine Learning Mode
 date: 2025-01-24
 categories: [Quantitative Finance]
 tags:
-  - quantitative finance
-  - machine learning
+  - quantitative-finance
+  - machine-learning
   - optimization
-  - sharpe ratio
+  - sharpe-ratio
 math: true
+description: "Why classifier precision, not accuracy, drives the Sharpe ratio of an ML trading strategy, derived for IID bets with symmetric payouts."
+image:
+  path: /assets/img/posts/precision-in-ml/social.jpg
+  alt: "Annualized Sharpe ratio against precision from 0.40 to 0.60 for 0 to 100 bets per year, all crossing zero at precision 0.5"
 ---
 
 When developing machine learning (ML) models for algorithmic trading, one of the key challenges is determining the trade-off between accuracy and precision. Accuracy measures the overall correctness of predictions, while precision focuses on the relationship between true positives (money-making bets) and false positives (money-losing bets). This trade-off directly influences the expected Sharpe ratio, which is critical for assessing the risk-adjusted return of a trading strategy. By analyzing the outcomes of market bets within specific time windows, practitioners can identify target metrics to optimize both model training and validation.
@@ -89,7 +93,7 @@ $$
 
 The figure below illustrates this trade-off, showing the Sharpe ratio as a function of precision for various betting frequencies. High frequencies ($n$) can compensate for lower precision, while lower frequencies demand higher precision to achieve similar Sharpe ratios.
 
-![Relation between precision and Sharpe ratio](/assets/img/blog/sharpe-precision-relationship.png){: w="1790" h="1160" }
+![Annualized Sharpe ratio against precision from 0.40 to 0.60 for 0 to 100 bets per year, all crossing zero at precision 0.5](/assets/img/blog/sharpe-precision-relationship.png){: w="1790" h="1160" }
 
 By understanding this interplay, practitioners can align their strategy's design with the operational constraints of their trading environment, balancing precision and frequency to optimize performance.
 

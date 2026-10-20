@@ -3,9 +3,10 @@ title: 'Enhancing Algorithmic Trading Backtesting with Custom OHLC Resampling'
 date: 2024-08-28
 categories: [Programming, Tutorial]
 tags:
-  - time series
+  - time-series
   - python
   - backtesting
+description: "A loop-based alternative to pandas resample() that builds hourly, daily, and weekly OHLC bars from raw prices for more faithful backtests."
 ---
 
 In algorithmic trading, the accuracy of backtesting can make or break a strategy. The ability to simulate how your trading algorithm would have performed historically is crucial for refining and optimizing your approach. A key aspect of this process is how time series data, particularly OHLC (Open, High, Low, Close) data, is handled. While pandas provides a built-in method for resampling, it often falls short when dealing with the unique demands of financial data. In this post, we’ll explore a custom OHLC resampling function that offers greater precision, allowing for more reliable backtesting results.
