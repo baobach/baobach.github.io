@@ -13,14 +13,14 @@
       "detail": "Runs the Jekyll server with live reload."
     },
     {
-      "label": "Build Jekyll Site",
+      "label": "Check Site",
       "type": "shell",
-      "command": "./tools/test.sh",
+      "command": "./tools/check.sh",
       "group": {
-        "kind": "build"
+        "kind": "test"
       },
       "problemMatcher": [],
-      "detail": "Build the Jekyll site for production."
+      "detail": "Production build, htmlproofer, and post linter (same steps as CI)."
     }
   ]
 }

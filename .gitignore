@@ -25,4 +25,6 @@ package-lock.json
 # Misc
 _sass/vendors
 assets/js/dist
-GEMINI.md
+
+# macOS
+.DS_Store

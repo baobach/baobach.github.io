@@ -1,6 +1,6 @@
 """
 Script for generating Jensen's Inequality visualization
-Location: _posts/_scripts/jensen_inequality/generate_jensen_plot.py
+Location: scripts/jensen-inequality/generate_jensen_plot.py
 Associated post: 2025-03-01-jensen-inequality.md
 """
 
@@ -58,10 +58,10 @@ plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.15), ncol=2)
 # Adjust layout to prevent label cutoff
 plt.tight_layout()
 
-# Get the path to the project root (3 levels up from the script location)
+# Get the path to the project root (2 levels up from the script location)
 script_dir = os.path.dirname(os.path.abspath(__file__))
-project_root = os.path.dirname(os.path.dirname(os.path.dirname(script_dir)))
-output_path = os.path.join(project_root, 'images', 'blogs', 'jensen_inequality.png')
+project_root = os.path.dirname(os.path.dirname(script_dir))
+output_path = os.path.join(project_root, 'assets', 'img', 'blog', 'jensen_inequality.png')
 
 # Create the output directory if it doesn't exist
 os.makedirs(os.path.dirname(output_path), exist_ok=True)

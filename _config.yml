@@ -216,6 +216,13 @@ exclude:
   - purgecss.js
   - rollup.config.js
   - "package*.json"
+  - inbox
+  - scripts
+  - AGENTS.md
+  - CLAUDE.md
+  - CLEANUP_PLAN.md
+  - .claude
+  - .agents
 
 jekyll-archives:
   enabled: [categories, tags]
