@@ -87,7 +87,7 @@ MD_IMAGE_RE = re.compile(
 OBS_EMBED_RE = re.compile(r"!\[\[(?P<target>[^\]|#]+)(?:#[^\]|]*)?(?:\|(?P<alt>[^\]]*))?\]\]")
 WIKILINK_RE = re.compile(r"(?<!!)\[\[(?P<target>[^\]|#]*)(?:#(?P<heading>[^\]|]*))?(?:\|(?P<text>[^\]]*))?\]\]")
 CALLOUT_RE = re.compile(r"^>\s*\[!(?P<type>[A-Za-z-]+)\][+-]?\s*(?P<title>.*)$")
-FENCE_RE = re.compile(r"^\s*(```|~~~)")
+FENCE_RE = re.compile(r"^\s*(`{3,}|~{3,})")
 INLINE_CODE_RE = re.compile(r"`[^`\n]+`")
 MATH_RE = re.compile(r"\$\$|\\\(|\$[^$\n]*(?:\\[A-Za-z]+|[\^_])[^$\n]*\$")
 SIZE_ONLY_RE = re.compile(r"^\s*\d+(?:x\d+)?\s*$")
@@ -218,7 +218,9 @@ def split_code(body: str) -> list[tuple[bool, str]]:
             continue
         if in_code:
             chunks[-1][1].append(line)
-            if line.strip().startswith(fence) and len(chunks[-1][1]) > 1:
+            # a fence closes only on the same character, at least as long, with nothing after it
+            closing = line.strip()
+            if closing and set(closing) == {fence[0]} and len(closing) >= len(fence):
                 in_code = False
             continue
         if not chunks or chunks[-1][0]:
