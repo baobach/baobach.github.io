@@ -60,7 +60,7 @@ webmaster_verifications:
 # Web Analytics Settings
 analytics:
   google:
-    id: # fill in your Google Analytics ID
+    id: G-QLE3R8VYTF # GA4 Measurement ID (injected only when JEKYLL_ENV=production)
   goatcounter:
     id: # fill in your GoatCounter ID
   umami:
@@ -121,7 +121,7 @@ actions:
 
 comments:
   # Global switch for the post-comment system. Keeping it empty means disabled.
-  provider: # [disqus | utterances | giscus]
+  provider: giscus # [disqus | utterances | giscus]
   # The provider options are as follows:
   disqus:
     shortname: # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
@@ -131,10 +131,10 @@ comments:
     issue_term: # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
-    repo: # <gh-username>/<repo>
-    repo_id:
-    category:
-    category_id:
+    repo: baobach/baobach.github.io # <gh-username>/<repo>
+    repo_id: R_kgDOMp4Ldg
+    category: Announcements
+    category_id: DIC_kwDOMp4Lds4DJLbC
     mapping: # optional, default to 'pathname'
     strict: # optional, default to '0'
     input_position: # optional, default to 'bottom'
