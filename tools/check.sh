@@ -48,9 +48,13 @@ rm -rf "$SITE_DIR"
 JEKYLL_ENV=production bundle exec jekyll b -d "$SITE_DIR"
 
 echo "> Running htmlproofer"
-proofer_opts=(--ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/")
-if ! $external; then
-  proofer_opts+=(--disable-external)
+ignore_urls="/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
+if $external; then
+  # same exclusions as .github/workflows/link-check.yml: sites that block bots,
+  # resource hints, and the analytics script
+  proofer_opts=(--ignore-status-codes "429,999" --ignore-urls "$ignore_urls,/linkedin\.com/,/\/\/(www\.)?x\.com/,/twitter\.com/,/fonts\.googleapis\.com/,/fonts\.gstatic\.com/,/googletagmanager\.com/,/dl\.acm\.org/")
+else
+  proofer_opts=(--disable-external --ignore-urls "$ignore_urls")
 fi
 bundle exec htmlproofer "$SITE_DIR" "${proofer_opts[@]}"
 
