@@ -20,9 +20,10 @@ Vault: `/Users/baobach/Desktop/External-brain`. Read its `Index.md` to locate no
 4. **Write the draft** to `inbox/<slug>/post.md` following `AGENTS.md`: front matter with `title`, `categories`, `tags`, `description`; technical content from the first paragraph; prose; meaningful subtitles with 1 to 2 sentence overviews; runnable code; LaTeX math; a conclusion of at most 4 sentences. Treat the vault note as source material, not as text to transcribe: vault notes are terse bullets, a post is an explanation.
 5. **Pictures.** Copy images the post uses from the vault's `Files/` into `inbox/<slug>/` and reference them by filename with real alt text. Generate new figures with a script in `inbox/<slug>/scripts/` when the note has none and a figure helps.
 6. **Verify** code you wrote (run it) and math you derived. List anything you could not verify for the user.
-7. **Report** the slug, the vault notes used, and open questions. Suggest `/publish <slug>` as the next step.
+7. **Log handoff.** Follow **Vault log handoff** in `AGENTS.md`: message the `external-brain` session to log the draft and add it to the Drafting table. If no session is found, tell the user to start one, and hold any `git push` until the entry is in the vault's `Log.md`.
+8. **Report** the slug, the vault notes used, the handoff result, and open questions. Suggest `/publish <slug>` as the next step.
 
 ## Pitfalls
 
-- Don't edit the vault here. The tracker row is updated by `/publish` after the post goes live.
+- Don't edit the vault yourself. The `external-brain` session writes `Log.md` and the tracker (see **Vault log handoff** in `AGENTS.md`).
 - No em dashes anywhere in the draft.

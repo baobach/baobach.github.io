@@ -93,7 +93,16 @@ Claude (Mac) and Hermes (lab-2) each have their own clone, so they coordinate th
 
 Posts are often rewritten from notes in the user's Obsidian vault (`/Users/baobach/Desktop/External-brain` on the Mac, `/home/bao/External-brain` on lab-2). The hub note `Fleeting Notes/QuantFin Blog.md` holds the article tracker, the editorial calendar, and rewrite caveats (CQF lecture notes need original explanations and code; `#QCConsultant` client-work notes need the user's OK; lab notes must lose hostnames and network details).
 
-After a post is published, Claude updates the tracker in that hub note (move the row to Published, set `last_activity`), following the vault's write lock and `Log.md` rules in the vault's `AGENTS.md`. Hermes never edits that note (vault rule: Hermes only creates new notes).
+### Vault log handoff
+
+Every time a draft starts or a post changes status (drafting, published), the vault must record it. The blog agent never writes the vault itself: the agent working in the External Brain vault owns `Log.md` and the tracker, and follows the vault's write lock.
+
+1. Find the vault agent: run `ListAgents` and look for a session whose name starts with `external-brain`.
+2. Send it one message (`SendMessage`) with the slug, title, status, date, branch, the vault notes used, and the request: append a `Log.md` line and update the row in `Fleeting Notes/QuantFin Blog.md` (Drafting table for a draft, Published table and `last_activity` for a published post).
+3. No `external-brain` session found: tell the user to start a Claude Code session in the vault, and hold every `git push` for that post.
+4. Before any `git push` for the post, check that the entry exists: `grep -F "<slug>" /Users/baobach/Desktop/External-brain/Log.md`. No match: don't push. Tell the user the push is on hold until the entry is in the log.
+
+Hermes cannot message the Mac sessions, so for Hermes drafts the user relays the request (see `.agents/skills/blog-draft/`). Hermes never edits the hub note (vault rule: Hermes only creates new notes).
 
 ## Checks
 

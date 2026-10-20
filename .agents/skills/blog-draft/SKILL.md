@@ -27,8 +27,11 @@ Rules, front matter, and style guide are in `AGENTS.md` at the repo root, alread
 2. Read the vault note and at most 3 notes it links. Caveats: CQF lecture notes need original wording and code; notes tagged `#QCConsultant` need the user's OK first (ask, then stop); remove hostnames, IPs, and network details from lab notes.
 3. Write `inbox/<slug>/post.md`: front matter (`title`, `categories` from `_data/categories.yml`, `tags` lowercase-hyphenated, `description` 50 to 160 characters), then the post in the house style. No em dashes.
 4. Copy pictures the post uses from the vault `Files/` folder into `inbox/<slug>/` and give each real alt text: `![What the figure shows](file.png)`.
-5. `git add inbox/<slug>/ && git commit -m "hermes: draft <slug>" && git push -u origin hermes/<slug>`. On conflict or push failure, stop and tell the user.
-6. Tell the user: branch name, vault notes used, and the `CHECK` items.
+5. Commit: `git add inbox/<slug>/ && git commit -m "hermes: draft <slug>"`. Do not push yet.
+6. Ask the user to have the External Brain agent on the Mac log the draft (slug, title, vault notes used). You cannot message it yourself.
+7. Hold the push. When the user says the entry is in, run `git -C /home/bao/External-brain pull --rebase` and `grep -F "<slug>" /home/bao/External-brain/Log.md`. No match: keep holding and tell the user.
+8. Push: `git push -u origin hermes/<slug>`. On conflict or push failure, stop and tell the user.
+9. Tell the user: branch name, vault notes used, and the `CHECK` items.
 
 ## Proofread
 
