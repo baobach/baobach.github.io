@@ -1,7 +1,6 @@
 # Bundler cache
 .bundle
 vendor
-Gemfile.lock
 
 # Jekyll cache
 .jekyll-cache
@@ -26,5 +25,7 @@ package-lock.json
 _sass/vendors
 assets/js/dist
 
-# macOS
+# Hidden system files
+*~
 .DS_Store
+Thumbs.db
